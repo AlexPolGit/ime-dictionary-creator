@@ -1,0 +1,29 @@
+[project]
+name = "ime_dictionary_creator"
+version = "0.1.0"
+description = "IME辞書をプログラム的に作成するための様々な道具。"
+authors = [
+    { name="Alexey Polishchuk", email="alexpolishchukmail@gmail.com" }
+]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.12.5",
+]
+
+[project.urls]
+"Repository" = "https://github.com/AlexPolGit/ime-dictionary-creator"
+
+[tool.setuptools]
+include-package-data = true
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+]
