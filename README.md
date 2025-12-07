@@ -81,7 +81,7 @@ dictionary.add_entry("はんたーはんたー", "HUNTER×HUNTER")
 dictionary.save_to_file()
 ```
 
-### Microsoft IMEテキスト辞書 (Microsoft IME Text Dictionary)
+### Microsoft IMEテキスト辞書
 Microsoft IMEなどに登録(インポート)できるテキスト辞書を作成する方法：
 
 1. `MicrosoftImeDictionary`を名前を付けてインスタンス化する：
@@ -89,7 +89,7 @@ Microsoft IMEなどに登録(インポート)できるテキスト辞書を作�
 dictionary = MicrosoftImeDictionary(name="MicrosoftIME辞書")
 ```
 
-2. 内容を追加する：
+2. 内容(単語)を追加する：
 ```py
 dictionary = Dictionary(name="MicrosoftIME辞書")
 dictionary.add_entry("ことば", "言葉")
