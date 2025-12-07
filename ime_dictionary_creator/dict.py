@@ -15,23 +15,23 @@ class DictionaryComment(BaseModel):
 
 
 class DictionaryEntry(BaseModel):
-    """抽象型のIME辞書内の一行(言葉)。"""
+    """抽象型のIME辞書内の一行(単語)。"""
 
     reading: str
-    """言葉の読み。"""
+    """単語の読み。"""
     word: str
-    """言葉そのもの。"""
+    """単語そのもの。"""
     pos: PartOfSpeech
-    """言葉の品詞。"""
+    """単語の品詞。"""
     comment: Optional[str]
-    """（任意）言葉のコメント。"""
+    """（任意）単語のコメント。"""
 
     class Config:
         validate_assignment = True
 
     @field_validator("reading")
     def must_be_valid_reading(cls, reading: str):
-        """言葉の読みの構成は正当な文字からなっているかどうかを確認する。"""
+        """単語の読みの構成は正当な文字からなっているかどうかを確認する。"""
         for char in reading:
             if char not in VALID_READING_CHARACTERS:
                 raise TypeError(f"不当な文字が読み（{reading}）に含まれています：「{char}」。ひらがな、英数字、記号のみが使用可能です。")
@@ -54,16 +54,16 @@ class Dictionary(BaseModel, ABC, Generic[DictionaryItemType]):
 
     @abstractmethod
     def add_entry(self, reading: str, word: str, pos: PartOfSpeech | str = PartOfSpeech.名詞, comment: Optional[str] = None) -> DictionaryItemType:
-        """新規の行(言葉)をこの辞書に追加する。
+        """新規の行(単語)をこの辞書に追加する。
 
         Params:
-            reading: 新規言葉の読み。
-            word: 新規言葉そのもの。
-            pos: 新規言葉の品詞。
-            comment: （任意）新規言葉のコメント。
+            reading: 新規言単語の読み。
+            word: 新規単語そのもの。
+            pos: 新規単語の品詞。
+            comment: （任意）新規単語のコメント。
 
         Returns:
-            entry: 追加された新規言葉。
+            entry: 追加された新規単語。
         """
         pass
 

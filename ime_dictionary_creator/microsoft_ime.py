@@ -19,11 +19,11 @@ class MicrosoftImeDictionaryComment(DictionaryComment):
 
 
 class MicrosoftImeDictionaryEntry(DictionaryEntry):
-    """Microsoft IME辞書内の一行(言葉)。"""
+    """Microsoft IME辞書内の一行(単語)。"""
 
     @classmethod
     def from_txt(cls, text: str) -> "MicrosoftImeDictionaryEntry":
-        """Microsoft IME辞書内の行(言葉)をテキストから作成する。"""
+        """Microsoft IME辞書内の行(単語)をテキストから作成する。"""
         fields: List[Optional[str]] = [f for f in text.split("\t")]
 
         if len(fields) < 3 or len(fields) > 4 or fields[0] is None or fields[1] is None or fields[2] is None:
@@ -66,16 +66,16 @@ class MicrosoftImeDictionary(Dictionary[MicrosoftImeDictionaryItem]):
         return dict
 
     def add_entry(self, reading: str, word: str, pos: PartOfSpeech | str = PartOfSpeech.名詞, comment: Optional[str] = None):
-        """新規の行(言葉)をこのMicrosoft IME辞書に追加する。
+        """新規の行(単語)をこのMicrosoft IME辞書に追加する。
 
         Params:
-            reading: 新規言葉の読み。
-            word: 新規言葉そのもの。
-            pos: 新規言葉の品詞。
-            comment: （任意）新規言葉のコメント。
+            reading: 新規単語の読み。
+            word: 新規単語そのもの。
+            pos: 新規単語の品詞。
+            comment: （任意）新規単語のコメント。
 
         Returns:
-            entry: 追加された新規言葉。
+            entry: 追加された新規単語。
         """
         new_entry = MicrosoftImeDictionaryEntry(
             reading=reading,
