@@ -1,7 +1,7 @@
-# IME辞書作成道具 (IME Dictionary Creator)
+# IME辞書作成ツール (IME Dictionary Creator)
 
 ## 概要
-IME辞書をプログラム的に作成するための様々な道具。
+IME辞書をプログラム的に作成するための様々なツール。
 
 ## 使用方法
 

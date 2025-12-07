@@ -1,7 +1,7 @@
 [project]
 name = "ime_dictionary_creator"
 version = "0.1.0"
-description = "IME辞書をプログラム的に作成するための様々な道具。"
+description = "IME辞書をプログラム的に作成するための様々なツール。"
 authors = [
     { name="Alexey Polishchuk", email="alexpolishchukmail@gmail.com" }
 ]
