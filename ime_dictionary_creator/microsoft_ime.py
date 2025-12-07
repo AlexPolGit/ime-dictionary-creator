@@ -64,16 +64,16 @@ class MicrosoftImeDictionary(Dictionary[MicrosoftImeDictionaryItem]):
                 dict.entries.append(MicrosoftImeDictionaryEntry.from_txt(line))
 
         return dict
-    
+
     def add_entry(self, reading: str, word: str, pos: PartOfSpeech | str = PartOfSpeech.名詞, comment: Optional[str] = None):
         """新規の行(言葉)をこのMicrosoft IME辞書に追加する。
-        
+
         Params:
             reading: 新規言葉の読み。
             word: 新規言葉そのもの。
             pos: 新規言葉の品詞。
             comment: （任意）新規言葉のコメント。
-        
+
         Returns:
             entry: 追加された新規言葉。
         """
@@ -88,14 +88,14 @@ class MicrosoftImeDictionary(Dictionary[MicrosoftImeDictionaryItem]):
 
     def add_comment(self, content: str):
         """新規のコメントをこのMicrosoft IME辞書に追加する。
-        
+
         Params:
             content: 新規コメントの内容(テキスト)。
         """
         new_comment = MicrosoftImeDictionaryComment(content=content)
         self.entries.append(new_comment)
         return new_comment
-    
+
     def save_to_file(self) -> None:
         """このMicrosoft IME辞書をファイルに保存する。"""
         save_utf16le_txt(self.save_path / f"{self.name}.txt", str(self))

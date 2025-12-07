@@ -2,7 +2,7 @@ from pathlib import Path
 
 def read_utf16le_txt(file_path: Path) -> str:
     """UTF-16 LEのテキストファイルの内容を読み込む。
-    
+
     Params:
         file_path: 読み込みたいファイルのパス。
     """

@@ -70,7 +70,7 @@ class Dictionary(BaseModel, ABC, Generic[DictionaryItemType]):
     @abstractmethod
     def add_comment(self, content: str) -> DictionaryItemType:
         """新規のコメントをこの辞書に追加する。
-        
+
         Params:
             content: 新規コメントの内容(テキスト)。
         """
@@ -83,7 +83,7 @@ class Dictionary(BaseModel, ABC, Generic[DictionaryItemType]):
 
     def get_entries(self) -> List[DictionaryItemType]:
         """この辞書の行とコメントを全て取り出す。
-        
+
         Returns:
             entry: この辞書の全部の行とコメント。
         """
